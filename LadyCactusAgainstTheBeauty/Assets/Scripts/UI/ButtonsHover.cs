@@ -10,6 +10,7 @@ public class ButtonsHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     [SerializeField] private Color _hoverColor;
     [SerializeField] private TextMeshProUGUI _textBttn;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private Color _currentColor;
     private Vector3 _currentScale;
@@ -24,6 +25,7 @@ public class ButtonsHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        _particleSystem.transform.position = transform.position;
         _bttn.color = _hoverColor;
         _textBttn.color = _currentColor;
         transform.DOScale(1.2f, 0.1f);
@@ -35,5 +37,10 @@ public class ButtonsHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _bttn.color = _currentColor;
         _textBttn.color = _hoverColor;
         transform.DOScale(_currentScale, 0.1f);
+    }
+
+    public void OnClick()
+    {
+        _particleSystem.Play();
     }
 }
