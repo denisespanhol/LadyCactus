@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private PlayerHealth _playerHealth;
     private Transform _playerTransform;
     private int _actualPoints = 0;
-    private int _actualRecord = 0;
+    // private int _actualRecord = 0;
 
     #endregion
 
